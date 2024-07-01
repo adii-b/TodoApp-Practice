@@ -1,5 +1,6 @@
 // Express boilerplate
 const express = require("express")
+const cors = require("cors")
 const { createTodo, updateTodo } = require("./types")
 const { TodoModel } = require("./db")
 
@@ -13,6 +14,7 @@ body {
 */
 
 app.use(express.json())
+app.use(cors())
 
 app.post("/todo", async (req, res) => {
 	const createPayload = req.body
